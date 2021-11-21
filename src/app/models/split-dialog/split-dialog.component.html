@@ -1,0 +1,29 @@
+<div>
+<form [formGroup]="orderForm"> 
+    <button mat-button  cdkFocusInitial> Amount to split: {{ amount }} {{ currency }} </button>
+<div  formArrayName="items">
+    <div class="split-transaction-modal"  *ngFor="let item of items2; let i = index;">
+    <mat-form-field appearance="fill" [formGroupName]="i"   >
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="amount"  value="">
+    </mat-form-field>
+    <mat-form-field appearance="fill" [formGroupName]="i"  >
+        <mat-select   name="catcode" formControlName="catcode" >
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{category.name}}
+            </mat-option>
+        </mat-select>
+        
+    </mat-form-field>
+    <button style="top:1vw" mat-icon-button color="primary" 
+    (click)="removeLast()"><mat-icon>delete</mat-icon></button>
+
+</div>
+    <button mat-button (click)="confirm()" [disabled]='!orderForm.controls.items.valid' cdkFocusInitial>SAVE</button>
+    <button mat-button (click)="cancel()" cdkFocusInitial>CANCEL</button>
+    <button mat-button (click)="createNewInput()" cdkFocusInitial>ADD MORE</button>
+
+
+</div>
+</form>
+</div>

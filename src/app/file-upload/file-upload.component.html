@@ -1,0 +1,10 @@
+<div>
+    <div>
+    <input id="file" #transactionsInput hidden="true" type="file" onclick="this.value=null" (change)="transactionsImport($event)" accept=".csv"/>
+    <button mat-flat-button color="primary" (click)="transactionsInput.click()">Choose Transactions File (CSV)</button>
+</div>
+<div style="margin-top:5px">
+    <input id="file" #categoriesInput hidden="true" type="file" onclick="this.value=null" (change)="categoriesImport($event)" accept=".csv"/>
+    <button mat-flat-button color="primary" (click)="categoriesInput.click()">Choose Categories File (CSV)</button>
+</div>
+</div>
